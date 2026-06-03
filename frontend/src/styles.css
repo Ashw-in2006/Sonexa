@@ -237,6 +237,14 @@ input {
   color: var(--muted);
 }
 
+.track-source {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
 .track-footer {
   justify-content: space-between;
   margin-top: 12px;
@@ -314,6 +322,25 @@ input {
   justify-content: flex-end;
 }
 
+.youtube-player {
+  grid-column: 2 / -1;
+  min-height: 72px;
+}
+
+.youtube-player iframe {
+  width: 100%;
+  min-height: 180px;
+  border: 0;
+  border-radius: 18px;
+}
+
+.youtube-trigger {
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 20px;
+}
+
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
@@ -326,6 +353,10 @@ input {
 
   .player-volume {
     justify-content: flex-start;
+  }
+
+  .youtube-player {
+    grid-column: auto;
   }
 }
 

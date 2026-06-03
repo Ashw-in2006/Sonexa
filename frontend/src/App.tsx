@@ -23,7 +23,7 @@ export default function App() {
   const [progress, setProgress] = useState(0);
   const [elapsed, setElapsed] = useState(0);
   const [volume, setVolume] = useState(0.8);
-  const [liked, setLiked] = useState<number[]>([]);
+  const [liked, setLiked] = useState<Array<string | number>>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -99,7 +99,7 @@ export default function App() {
     setElapsed(0);
   };
 
-  const toggleLiked = (id: number) => {
+  const toggleLiked = (id: string | number) => {
     setLiked((current) => (current.includes(id) ? current.filter((item) => item !== id) : [...current, id]));
   };
 
@@ -173,6 +173,7 @@ export default function App() {
               <div className="track-meta">
                 <h3>{track.title}</h3>
                 <p>{track.artist}</p>
+                <p>{track.source ? track.source.toUpperCase() : ''}</p>
               </div>
               <div className="track-footer">
                 <span>{formatTime(track.duration)}</span>

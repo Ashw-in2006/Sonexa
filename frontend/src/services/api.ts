@@ -1,7 +1,7 @@
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 export type Track = {
-  id: number;
+  id: string | number;
   title: string;
   artist: string;
   album: string;
@@ -9,6 +9,8 @@ export type Track = {
   stream_url: string;
   image_url: string;
   genre: string;
+  source: 'jamendo' | 'youtube' | string;
+  external_url?: string;
 };
 
 async function request<T>(path: string): Promise<T> {
