@@ -13,6 +13,12 @@ export type Track = {
   external_url?: string;
 };
 
+export type TrendingSearch = {
+  term: string;
+  count: number;
+  trend: 'up' | 'down' | 'steady';
+};
+
 async function request<T>(path: string): Promise<T> {
   const response = await fetch(`${API_URL}${path}`);
   if (!response.ok) {
@@ -26,4 +32,6 @@ export const api = {
   search: (q: string) => request<{ tracks: Track[] }>(`/api/search?q=${encodeURIComponent(q)}`),
   trending: () => request<{ tracks: Track[] }>('/api/trending'),
   genre: (genre: string) => request<{ tracks: Track[] }>(`/api/genres/${encodeURIComponent(genre)}`),
+  suggestions: (q: string) => request<{ suggestions: string[]; query: string }>(`/api/suggestions?q=${encodeURIComponent(q)}`),
+  trendingSearches: () => request<{ trending: TrendingSearch[] }>('/api/trending-searches'),
 };
