@@ -217,7 +217,7 @@ export default function App() {
       <main className="content">
         <section className="hero">
           <div>
-            <p className="eyebrow"><Sparkles size={14} /> Jamendo powered</p>
+            <p className="eyebrow"><Sparkles size={14} /> Ashwin's powered</p>
             <h1>Unlimited free music with a polished dark/light experience.</h1>
             <p className="hero-copy">Search any genre, play tracks instantly, and switch themes with one click.</p>
           </div>
