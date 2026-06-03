@@ -45,6 +45,7 @@ export default function AudioPlayer({
         <audio
           ref={audioRef}
           src={track.stream_url}
+          preload="metadata"
           onEnded={onEnded}
           onTimeUpdate={() => {
             const audio = audioRef.current;
